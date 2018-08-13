@@ -1,3 +1,5 @@
+package model;
+
 public class Time {
     private Long start;
     private Long stop;
