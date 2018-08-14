@@ -2,7 +2,7 @@ package alluremodel;
 
 import java.util.List;
 
-public class JsonModel {
+public class AllureModel {
     private String uid;
     private String name;
     private String historyId;
@@ -21,10 +21,10 @@ public class JsonModel {
     private String source;
     private List<ParameterValues> parameterValues;
 
-    public JsonModel() {
+    public AllureModel() {
     }
 
-    public JsonModel(String uid, String name, String historyId, Time time, String status, Boolean flaky, List<BeforeStages> beforeStages, TestStage testStage, List<AfterStages> afterStages, List<Labels> labels, List<Parameters> parameters, List<Links> links, Boolean hidden, Boolean retry, Extra extra, String source, List<ParameterValues> parameterValues) {
+    public AllureModel(String uid, String name, String historyId, Time time, String status, Boolean flaky, List<BeforeStages> beforeStages, TestStage testStage, List<AfterStages> afterStages, List<Labels> labels, List<Parameters> parameters, List<Links> links, Boolean hidden, Boolean retry, Extra extra, String source, List<ParameterValues> parameterValues) {
         this.uid = uid;
         this.name = name;
         this.historyId = historyId;

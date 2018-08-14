@@ -1,4 +1,6 @@
-import alluremodel.JsonModel;
+import allureDTO.AllureModelDTO;
+import alluremapping.AllureModelMapping;
+import alluremodel.AllureModel;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -18,31 +20,41 @@ import java.util.stream.Collectors;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        List<File> files = Main.getFilesFromFolder();
-        List<JsonModel> jsonStructureList = Main.transferJsonToPojo(files);
+        List<File> files = Main.getJsonFilesFromFolder();
+        List<AllureModel> jsonModelList = Main.transferJsonToPojo(files);
+        List<AllureModelDTO> dtoModelList = transferPojoToDto(jsonModelList);
+
+        System.out.println(dtoModelList);
     }
 
-    private static List<File> getFilesFromFolder() throws IOException {
+    private static List<File> getJsonFilesFromFolder() throws IOException {
         return Files.walk(Paths.get("src/main/resources/json"))
                 .filter(Files::isRegularFile)
                 .map(Path::toFile)
                 .collect(Collectors.toList());
     }
 
-    private static List<JsonModel> transferJsonToPojo(List<File> files) throws FileNotFoundException {
-        List<JsonModel> jsonStructureList = new ArrayList<>();
+    private static List<AllureModel> transferJsonToPojo(List<File> files) throws FileNotFoundException {
+        List<AllureModel> jsonModelList = new ArrayList<>();
         Gson gson = new Gson();
-        Type REVIEW_TYPE = new TypeToken<JsonModel>() {
+        Type REVIEW_TYPE = new TypeToken<AllureModel>() {
         }.getType();
 
 
         for (File file : files) {
             if (file.getName().contains(".json")) {
                 JsonReader reader = new JsonReader(new FileReader(file));
-                JsonModel data = gson.fromJson(reader, REVIEW_TYPE);
-                jsonStructureList.add(data);
+                AllureModel data = gson.fromJson(reader, REVIEW_TYPE);
+                jsonModelList.add(data);
             }
         }
-        return jsonStructureList;
+        return jsonModelList;
+    }
+
+    private static List<AllureModelDTO> transferPojoToDto(List<AllureModel> jsonModelList) {
+        return jsonModelList
+                .stream()
+                .map(AllureModelMapping::fromJson)
+                .collect(Collectors.toList());
     }
 }

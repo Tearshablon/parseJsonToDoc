@@ -2,19 +2,21 @@ package allureDTO;
 
 import java.util.List;
 
-public class JsonModelDTO {
+public class AllureModelDTO {
     private String name;
     private String status;
+    private TestStageDTO testStage;
     private List<LabelsDTO> labels;
     private List<ParametersDTO> parameters;
     private List<LinksDTO> links;
 
-    public JsonModelDTO() {
+    public AllureModelDTO() {
     }
 
-    public JsonModelDTO(String name, String status, List<LabelsDTO> labels, List<ParametersDTO> parameters, List<LinksDTO> links) {
+    public AllureModelDTO(String name, String status, TestStageDTO testStage, List<LabelsDTO> labels, List<ParametersDTO> parameters, List<LinksDTO> links) {
         this.name = name;
         this.status = status;
+        this.testStage = testStage;
         this.labels = labels;
         this.parameters = parameters;
         this.links = links;
@@ -58,5 +60,13 @@ public class JsonModelDTO {
 
     public void setLinks(List<LinksDTO> links) {
         this.links = links;
+    }
+
+    public TestStageDTO getTestStage() {
+        return testStage;
+    }
+
+    public void setTestStage(TestStageDTO testStage) {
+        this.testStage = testStage;
     }
 }
