@@ -1,4 +1,5 @@
 import allureDTO.AllureModelDTO;
+import allureDTO.LabelsDTO;
 import alluremapping.AllureModelMapping;
 import alluremodel.AllureModel;
 import com.google.gson.Gson;
@@ -23,8 +24,7 @@ public class Main {
         List<File> files = Main.getJsonFilesFromFolder();
         List<AllureModel> jsonModelList = Main.transferJsonToPojo(files);
         List<AllureModelDTO> dtoModelList = transferPojoToDto(jsonModelList);
-
-        System.out.println(dtoModelList);
+        List<LabelsDTO> filterLabelByName = filterLabelByName(dtoModelList);
     }
 
     private static List<File> getJsonFilesFromFolder() throws IOException {
@@ -56,5 +56,16 @@ public class Main {
                 .stream()
                 .map(AllureModelMapping::fromJson)
                 .collect(Collectors.toList());
+    }
+
+    private static List<LabelsDTO> filterLabelByName(List<AllureModelDTO> jsonModelList) {
+        return jsonModelList
+                .stream()
+                .map(i -> i.getLabels()
+                        .stream()
+                        .filter(k -> !k.getName().equals("suite"))
+                        .filter(f -> !f.getName().equals("package"))
+                        .collect(Collectors.toList()))
+                .findAny().orElse(null);
     }
 }
