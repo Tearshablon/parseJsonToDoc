@@ -1,6 +1,7 @@
 package docgenerator;
 
 import allureDTO.AllureModelDTO;
+import operationwithjson.JsonFilter;
 import org.apache.poi.xwpf.usermodel.*;
 
 import java.io.File;
@@ -36,7 +37,11 @@ public class DocGenerator {
         XWPFTable table = document.createTable();
 
         XWPFTableRow tableRowOne = table.getRow(0);
-        //todo вот здесь идут label
+        String epic = JsonFilter.getEpicFromLabelByName(allureModel.getLabels());
+        String story = JsonFilter.getStoryFromLabelName(allureModel.getLabels());
+        String severity = JsonFilter.getSeverityFromLabelName(allureModel.getLabels());
+        String urlToKb = JsonFilter.getUrlToKbFromLinksByType(allureModel.getLinks());
+
 //        tableRowOne.getCell(0).setText();
 //        tableRowOne.addNewTableCell().setText();
 //        tableRowOne.addNewTableCell().setText();

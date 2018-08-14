@@ -1,3 +1,5 @@
+package operationwithjson;
+
 import allureDTO.AllureModelDTO;
 import alluremapping.AllureModelMapping;
 import alluremodel.AllureModel;
@@ -21,9 +23,6 @@ public class JsonReader {
         List<File> files = JsonReader.getJsonFilesFromFolder();
         List<AllureModel> jsonModelList = JsonReader.transferJsonToPojo(files);
         return transferPojoToDto(jsonModelList);
-
-        //todo вынести в отдельный класс
-//        List<LabelsDTO> filterLabelByName = filterLabelByName(dtoModelList);
     }
 
     private static List<File> getJsonFilesFromFolder() throws IOException {
@@ -57,14 +56,5 @@ public class JsonReader {
                 .collect(Collectors.toList());
     }
 
-//    private static List<LabelsDTO> filterLabelByName(List<AllureModelDTO> jsonModelList) {
-//        return jsonModelList
-//                .stream()
-//                .map(i -> i.getLabels()
-//                        .stream()
-//                        .filter(k -> !k.getName().equals("suite"))
-//                        .filter(f -> !f.getName().equals("package"))
-//                        .collect(Collectors.toList()))
-//                .findAny().orElse(null);
-//    }
+
 }
