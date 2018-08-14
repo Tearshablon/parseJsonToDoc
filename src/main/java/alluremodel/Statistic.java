@@ -1,4 +1,4 @@
-package model;
+package alluremodel;
 
 public class Statistic {
     private Long failed;

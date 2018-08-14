@@ -1,4 +1,4 @@
-package model;
+package alluremodel;
 
 public class Labels {
     private String name;

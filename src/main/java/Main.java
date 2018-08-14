@@ -1,7 +1,7 @@
+import alluremodel.JsonModel;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import model.AllureModel;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,9 +19,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         List<File> files = Main.getFilesFromFolder();
-        List<AllureModel> jsonStructureList = Main.transferJsonToPojo(files);
+        List<JsonModel> jsonStructureList = Main.transferJsonToPojo(files);
     }
-
 
     private static List<File> getFilesFromFolder() throws IOException {
         return Files.walk(Paths.get("src/main/resources/json"))
@@ -30,21 +29,20 @@ public class Main {
                 .collect(Collectors.toList());
     }
 
-
-    private static List<AllureModel> transferJsonToPojo(List<File> files) throws FileNotFoundException {
-        List<AllureModel> jsonStructureList = new ArrayList<>();
-        Type REVIEW_TYPE = new TypeToken<AllureModel>() {
+    private static List<JsonModel> transferJsonToPojo(List<File> files) throws FileNotFoundException {
+        List<JsonModel> jsonStructureList = new ArrayList<>();
+        Gson gson = new Gson();
+        Type REVIEW_TYPE = new TypeToken<JsonModel>() {
         }.getType();
 
-        Gson gson = new Gson();
+
         for (File file : files) {
             if (file.getName().contains(".json")) {
                 JsonReader reader = new JsonReader(new FileReader(file));
-                AllureModel data = gson.fromJson(reader, REVIEW_TYPE);
+                JsonModel data = gson.fromJson(reader, REVIEW_TYPE);
                 jsonStructureList.add(data);
             }
         }
         return jsonStructureList;
     }
-
 }

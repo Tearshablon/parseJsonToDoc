@@ -1,10 +1,8 @@
-package model;
+package alluremodel;
 
 import java.util.List;
 
-public class Steps {
-    private String name;
-    private Time time;
+public class TestStage {
     private String status;
     private List<Steps> steps;
     private List<Attachments> attachments;
@@ -14,12 +12,11 @@ public class Steps {
     private Boolean shouldDisplayMessage;
     private Boolean hasContent;
 
-    public Steps() {
+
+    public TestStage() {
     }
 
-    public Steps(String name, Time time, String status, List<Steps> steps, List<Attachments> attachments, List<Parameters> parameters, Long stepsCount, Long attachmentsCount, Boolean shouldDisplayMessage, Boolean hasContent) {
-        this.name = name;
-        this.time = time;
+    public TestStage(String status, List<Steps> steps, List<Attachments> attachments, List<Parameters> parameters, Long stepsCount, Long attachmentsCount, Boolean shouldDisplayMessage, Boolean hasContent) {
         this.status = status;
         this.steps = steps;
         this.attachments = attachments;
@@ -28,22 +25,6 @@ public class Steps {
         this.attachmentsCount = attachmentsCount;
         this.shouldDisplayMessage = shouldDisplayMessage;
         this.hasContent = hasContent;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
     }
 
     public String getStatus() {

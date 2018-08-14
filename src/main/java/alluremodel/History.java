@@ -1,4 +1,4 @@
-package model;
+package alluremodel;
 
 import java.util.List;
 
