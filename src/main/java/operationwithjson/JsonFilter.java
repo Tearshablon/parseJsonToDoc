@@ -5,6 +5,7 @@ import allureDTO.LinksDTO;
 import allureDTO.StepsDTO;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class JsonFilter {
 
@@ -14,6 +15,12 @@ public class JsonFilter {
 
     public static String getUrlToKbFromLinksByType(List<LinksDTO> links, String type) {
         return links.stream().filter(i -> i.getType().equals(type)).findFirst().get().getUrl();
+    }
+
+    public static StepsDTO getStepsDTOWithoutSetupStep(StepsDTO steps) {
+        StepsDTO stepsDTO = new StepsDTO();
+        stepsDTO.setSteps(steps.getSteps().stream().skip(1).collect(Collectors.toList()));
+        return stepsDTO;
     }
 
     public static StepsDTO getStepsDTOWithoutDollarSign(StepsDTO steps) {
