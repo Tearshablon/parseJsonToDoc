@@ -55,6 +55,4 @@ public class JsonReader {
                 .map(AllureModelMapping::fromJson)
                 .collect(Collectors.toList());
     }
-
-
 }
