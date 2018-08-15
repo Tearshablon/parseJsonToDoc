@@ -20,6 +20,7 @@ public class DocGenerator {
     private final int TEST_STEPS_BLOCK_NAME_FONT_SIZE = 11;
     private final int TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE = 11;
     private final String TEST_STEPS_BLOCK_NAME_TEXT = "Шаги тестового сценария:";
+    private final String BEFORE_CONDITION_BLOCK_NAME_TEXT = "Предусловия:";
     private final String EPIC_NAME_FOR_DESCRIPTION_TABLE = "epic";
     private final String STORY_NAME_FOR_DESCRIPTION_TABLE = "story";
     private final String SEVERITY_NAME_FOR_DESCRIPTION_TABLE = "severity";
@@ -33,13 +34,18 @@ public class DocGenerator {
         for (int i = 0; i < allureModel.size(); i++) {
             generateTextWithParameters(allureModel.get(i).getName(), TEST_SCENARIO_NAME_FONT_SIZE, ParagraphAlignment.LEFT, true);
             generateTestScenarioDescriptionBlock(allureModel.get(0));
-            generateBeforeConditionBlock(getStepsDTOWithoutSetupStep(allureModel.get(0).getTestStage().getSteps().get(0)));
+            generateBeforeConditionBlock(getStepsDTOWithoutSetupStep(getStepsDTOWithoutDollarSign(allureModel.get(0).getTestStage().getSteps().get(0))));
             generateStepTestScenarioBlock(getStepsDTOWithoutDollarSign(allureModel.get(0).getTestStage().getSteps().get(1)));
             createDocFile(i);
         }
     }
 
     private void generateBeforeConditionBlock(StepsDTO stepsDTO) {
+        XWPFParagraph paragraph = generateTextWithParameters(BEFORE_CONDITION_BLOCK_NAME_TEXT, TEST_STEPS_BLOCK_NAME_FONT_SIZE, ParagraphAlignment.LEFT, true);
+        aroundTextBorders(paragraph);
+        getTestStepsFromAllureModelParent(stepsDTO);
+
+        setSpasingAfter(500);
     }
 
     private XWPFParagraph generateTextWithParameters(String text, int fontSize, ParagraphAlignment paragraphAlignment, boolean bold) {
@@ -62,7 +68,6 @@ public class DocGenerator {
         xwpfRun.setFontSize(fontSize);
         return paragraph;
     }
-
 
     private void generateTestScenarioDescriptionBlock(AllureModelDTO allureModel) {
         generateTextForDescriptionBlockWithParameters(EPIC_NAME_FOR_DESCRIPTION_TABLE,
@@ -124,9 +129,13 @@ public class DocGenerator {
         }
     }
 
-    public void createDocFile(int i) throws IOException {
+    private void createDocFile(int i) throws IOException {
         FileOutputStream out = new FileOutputStream(new File("test_scenario_" + i + ".docx"));
         document.write(out);
         out.close();
+    }
+
+    private void setSpasingAfter(int spaces) {
+        document.createParagraph().setSpacingAfter(spaces);
     }
 }
