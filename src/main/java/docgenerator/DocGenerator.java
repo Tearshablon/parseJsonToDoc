@@ -75,6 +75,21 @@ public class DocGenerator {
         return paragraph;
     }
 
+    private XWPFParagraph generateTextWithParametersAndNumber(String number, String text, int fontSize, ParagraphAlignment paragraphAlignment, boolean bold) {
+        XWPFParagraph paragraph = document.createParagraph();
+        paragraph.setAlignment(paragraphAlignment);
+        XWPFRun xwpfRun = paragraph.createRun();
+        xwpfRun.setText(number);
+        xwpfRun.setBold(bold);
+        xwpfRun.setFontSize(fontSize);
+
+        XWPFRun xwpfRun2 = paragraph.createRun();
+        xwpfRun2.setText(text);
+
+        TextFormatting.setSpacingBetweenLines(paragraph);
+        return paragraph;
+    }
+
     private XWPFParagraph generateTextForDescriptionBlockWithParameters(String name, String text, int fontSize, ParagraphAlignment paragraphAlignment, boolean bold) {
         XWPFParagraph paragraph = document.createParagraph();
         paragraph.setAlignment(paragraphAlignment);
@@ -131,7 +146,7 @@ public class DocGenerator {
         int stepnumber = 1;
         for (int i = 0; i < stepsDTO.getSteps().size(); i++) {
 
-            XWPFParagraph paragraph1 = generateTextWithParameters(stepnumber + ". " + stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
+            XWPFParagraph paragraph1 = generateTextWithParametersAndNumber(stepnumber + ". ", stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, true);
 
             TextFormatting.setSpacingBetweenLines(paragraph1);
 
@@ -154,14 +169,14 @@ public class DocGenerator {
     private void getTestStepsFromAllureModelChild(String parentStepNumber, StepsDTO stepsDTO) {
         int stepnumber = 1;
         for (int i = 0; i < stepsDTO.getSteps().size(); i++) {
-            XWPFParagraph paragraph1 = generateTextWithParameters(parentStepNumber + stepnumber + ". " + stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
+            XWPFParagraph paragraph1 = generateTextWithParametersAndNumber(parentStepNumber + stepnumber + ". ", stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, true);
 
             TextFormatting.setSpacingBetweenLines(paragraph1);
 
             paragraph1.setSpacingBetween(1);
             if (!stepsDTO.getSteps().get(i).getParameters().isEmpty()) {
                 for (int j = 0; j < stepsDTO.getSteps().get(i).getParameters().size(); j++) {
-                    XWPFParagraph paragraph = generateTextWithParameters( "name: " + stepsDTO.getSteps().get(i).getParameters().get(j).getName() + "  value: " + stepsDTO.getSteps().get(i).getParameters().get(j).getValue(), TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
+                    XWPFParagraph paragraph = generateTextWithParameters("name: " + stepsDTO.getSteps().get(i).getParameters().get(j).getName() + "  value: " + stepsDTO.getSteps().get(i).getParameters().get(j).getValue(), TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
                     TextFormatting.setSpacingBetweenLines(paragraph);
                     TextFormatting.aroundTextBorders(paragraph);
 
@@ -177,7 +192,7 @@ public class DocGenerator {
     private void getBeforeConditionFromAllureModelParent(StepsDTO stepsDTO) {
         int stepnumber = 1;
         for (int i = 0; i < stepsDTO.getSteps().size(); i++) {
-            XWPFParagraph paragraph = generateTextWithParameters(stepnumber + ". " + stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
+            XWPFParagraph paragraph = generateTextWithParametersAndNumber(stepnumber + ". ", stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, true);
 
             TextFormatting.setSpacingBetweenLines(paragraph);
 
