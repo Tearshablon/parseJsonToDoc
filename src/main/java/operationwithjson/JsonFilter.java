@@ -38,7 +38,7 @@ public class JsonFilter {
     public static StepsDTO getPlainStepsWithoutSetupStep(StepsDTO parentSteps) {
         StepsDTO plainStepsDTO = getPlainStepsDTO(parentSteps);
         StepsDTO plainStepsDTOWithoutSetupStep = getPlainStepsDTOWithoutSetupStep(plainStepsDTO);
-        deleteParametersStepsDTOWhereLengthMoreThan50Symbols(plainStepsDTOWithoutSetupStep);
+        deleteParametersBeforeBlockDTOWhereLengthMoreThan50Symbols(plainStepsDTOWithoutSetupStep);
         return plainStepsDTOWithoutSetupStep;
     }
 
@@ -60,7 +60,20 @@ public class JsonFilter {
         return stepsDTO;
     }
 
-    private static void deleteParametersStepsDTOWhereLengthMoreThan50Symbols(StepsDTO stepsDTO) {
-        stepsDTO.getSteps().stream().map(stepsDTO1 -> stepsDTO1.getParameters().removeIf(parametersDTO -> parametersDTO.getValue().length() > 50)).collect(Collectors.toList());
+
+    public static StepsDTO deleteParametersTestStepsDTOWhereLengthMoreThan50Symbols(StepsDTO steps) {
+        StepsDTO stepsDTO = steps;
+        for (int i = 0; i < stepsDTO.getSteps().size(); i++) {
+            if (stepsDTO.getSteps().get(i).getSteps().size() != 0) {
+                stepsDTO.getSteps().stream().map(stepsDTO1 -> stepsDTO1.getParameters().removeIf(parametersDTO -> parametersDTO.getValue().length() > 200)).collect(Collectors.toList());
+//                stepsDTO.getSteps().get(i).getSteps().stream().map(stepsDTO1 -> stepsDTO1.getParameters().removeIf(parametersDTO -> parametersDTO.getValue().length() > 50)).collect(Collectors.toList());
+                deleteParametersTestStepsDTOWhereLengthMoreThan50Symbols(stepsDTO.getSteps().get(i));
+            }
+        }
+        return stepsDTO;
+    }
+
+    private static void deleteParametersBeforeBlockDTOWhereLengthMoreThan50Symbols(StepsDTO stepsDTO) {
+        stepsDTO.getSteps().stream().map(stepsDTO1 -> stepsDTO1.getParameters().removeIf(parametersDTO -> parametersDTO.getValue().length() > 150)).collect(Collectors.toList());
     }
 }
