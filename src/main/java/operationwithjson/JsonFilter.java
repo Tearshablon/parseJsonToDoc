@@ -17,9 +17,29 @@ public class JsonFilter {
         return links.stream().filter(i -> i.getType().equals(type)).findFirst().get().getUrl();
     }
 
+    /**
+     * Возвращает StepsDTO без шага setup
+     * @param steps
+     * @return
+     */
     public static StepsDTO getStepsDTOWithoutSetupStep(StepsDTO steps) {
         StepsDTO stepsDTO = new StepsDTO();
         stepsDTO.setSteps(steps.getSteps().stream().skip(1).collect(Collectors.toList()));
+        return stepsDTO;
+    }
+
+
+    /**
+     * Возвращает StepsDTO без шага setup
+     * @param parentSteps StepsDto c вложенными StepsDto
+     * @return плоский StepsDto
+     */
+    public static StepsDTO getPlainStepsWithoutSetupStep(StepsDTO parentSteps) {
+        for (StepsDTO childSteps : parentSteps.getSteps()) {
+            childSteps.setSteps(null);
+        }
+        StepsDTO stepsDTO = new StepsDTO();
+        stepsDTO.setSteps(parentSteps.getSteps().stream().skip(1).collect(Collectors.toList()));
         return stepsDTO;
     }
 
