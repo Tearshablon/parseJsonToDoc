@@ -5,14 +5,10 @@ import allureDTO.ParametersDTO;
 import allureDTO.StepsDTO;
 import operationwithjson.JsonFilter;
 import org.apache.poi.xwpf.usermodel.*;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTPPr;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTSpacing;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.STLineSpacingRule;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.List;
 
 import static operationwithjson.JsonFilter.deleteParametersTestStepsDTOWhereLengthMoreThan50Symbols;
@@ -26,12 +22,18 @@ public class DocGenerator {
     private final int TEST_STEPS_BLOCK_NAME_FONT_SIZE = 11;
     private final int TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE = 11;
     private final int TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE = 8;
+    private final int LENGT_BETWEEN_DESCRIPTION_BLOCK_AND_BEFORE_CONDITION_BLOCK = 250;
     private final String TEST_STEPS_BLOCK_NAME_TEXT = "Шаги тестового сценария:";
     private final String BEFORE_CONDITION_BLOCK_NAME_TEXT = "Предусловия:";
     private final String EPIC_NAME_FOR_DESCRIPTION_TABLE = "epic";
     private final String STORY_NAME_FOR_DESCRIPTION_TABLE = "story";
     private final String SEVERITY_NAME_FOR_DESCRIPTION_TABLE = "severity";
     private final String URL_TO_KB_NAME_FOR_DESCRIPTION_TABLE = "tms";
+    private final String RUSSIAN_VALUE_EPIC_NAME_FOR_DESCRIPTION_TABLE = "Эпик";
+    private final String RUSSIAN_VALUE_STORY_NAME_FOR_DESCRIPTION_TABLE = "История";
+    private final String RUSSIAN_VALUE_SEVERITY_NAME_FOR_DESCRIPTION_TABLE = "Приоритет";
+    private final String RUSSIAN_VALUE_URL_TO_KB_NAME_FOR_DESCRIPTION_TABLE = "Ссылка на кб";
+    private final String DOCUMENT_NAME = "test_scenario.docx";
 
     public DocGenerator() {
         this.document = new XWPFDocument();
@@ -54,9 +56,10 @@ public class DocGenerator {
 
     private void generateBeforeConditionBlock(StepsDTO stepsDTO) {
         XWPFParagraph paragraph = generateTextWithParameters(BEFORE_CONDITION_BLOCK_NAME_TEXT, TEST_STEPS_BLOCK_NAME_FONT_SIZE, ParagraphAlignment.LEFT, true);
-        aroundTextBorders(paragraph);
+        paragraph.setSpacingBefore(LENGT_BETWEEN_DESCRIPTION_BLOCK_AND_BEFORE_CONDITION_BLOCK);
+        TextFormatting.aroundTextBorders(paragraph);
         getBeforeConditionFromAllureModelParent(stepsDTO);
-        setSpacesAfter(20);
+        TextFormatting.setSpacesAfter(20, document);
     }
 
     private XWPFParagraph generateTextWithParameters(String text, int fontSize, ParagraphAlignment paragraphAlignment, boolean bold) {
@@ -66,13 +69,15 @@ public class DocGenerator {
         xwpfRun.setText(text);
         xwpfRun.setBold(bold);
         xwpfRun.setFontSize(fontSize);
+
+        TextFormatting.setSpacingBetweenLines(paragraph);
         return paragraph;
     }
 
     private XWPFParagraph generateTextForDescriptionBlockWithParameters(String name, String text, int fontSize, ParagraphAlignment paragraphAlignment, boolean bold) {
         XWPFParagraph paragraph = document.createParagraph();
         paragraph.setAlignment(paragraphAlignment);
-        aroundTextBorders(paragraph);
+        TextFormatting.aroundTextBorders(paragraph);
 
         XWPFRun xwpfRun1 = paragraph.createRun();
         xwpfRun1.setText(name + ": ");
@@ -82,60 +87,43 @@ public class DocGenerator {
         XWPFRun xwpfRun2 = paragraph.createRun();
         xwpfRun2.setText(text);
 
-        setSpacingBeetwenLines(paragraph);
+        TextFormatting.setSpacingBetweenLines(paragraph);
 
         return paragraph;
     }
 
-    private void setSpacingBeetwenLines(XWPFParagraph paragraph) {
-        CTPPr ppr = paragraph.getCTP().getPPr();
-        if (ppr == null) ppr = paragraph.getCTP().addNewPPr();
-        CTSpacing spacing = ppr.isSetSpacing() ? ppr.getSpacing() : ppr.addNewSpacing();
-        spacing.setAfter(BigInteger.valueOf(10));
-        spacing.setBefore(BigInteger.valueOf(0));
-        spacing.setLineRule(STLineSpacingRule.AUTO);
-        spacing.setLine(BigInteger.valueOf(240));
-    }
-
     private void generateTestScenarioDescriptionBlock(AllureModelDTO allureModel) {
-        generateTextForDescriptionBlockWithParameters("Эпик",
+        generateTextForDescriptionBlockWithParameters(RUSSIAN_VALUE_EPIC_NAME_FOR_DESCRIPTION_TABLE,
                 JsonFilter.getValueFromLabelByName(allureModel.getLabels(), EPIC_NAME_FOR_DESCRIPTION_TABLE),
                 TEST_STEPS_BLOCK_NAME_FONT_SIZE,
                 ParagraphAlignment.LEFT,
                 true);
-        generateTextForDescriptionBlockWithParameters("История",
+        generateTextForDescriptionBlockWithParameters(RUSSIAN_VALUE_STORY_NAME_FOR_DESCRIPTION_TABLE,
                 JsonFilter.getValueFromLabelByName(allureModel.getLabels(), STORY_NAME_FOR_DESCRIPTION_TABLE),
                 TEST_STEPS_BLOCK_NAME_FONT_SIZE,
                 ParagraphAlignment.LEFT,
                 true);
-        generateTextForDescriptionBlockWithParameters("Приоритет",
+        generateTextForDescriptionBlockWithParameters(RUSSIAN_VALUE_SEVERITY_NAME_FOR_DESCRIPTION_TABLE,
                 JsonFilter.getValueFromLabelByName(allureModel.getLabels(), SEVERITY_NAME_FOR_DESCRIPTION_TABLE),
                 TEST_STEPS_BLOCK_NAME_FONT_SIZE,
                 ParagraphAlignment.LEFT,
                 true);
-        generateTextForDescriptionBlockWithParameters("Ссылка на кб",
+        generateTextForDescriptionBlockWithParameters(RUSSIAN_VALUE_URL_TO_KB_NAME_FOR_DESCRIPTION_TABLE,
                 JsonFilter.getUrlToKbFromLinksByType(allureModel.getLinks(), URL_TO_KB_NAME_FOR_DESCRIPTION_TABLE),
                 TEST_STEPS_BLOCK_NAME_FONT_SIZE,
                 ParagraphAlignment.LEFT,
                 true);
+
     }
 
     private void generateTestStepsScenarioBlock(StepsDTO stepsDTO, boolean isLastElement) {
         XWPFParagraph paragraph = generateTextWithParameters(TEST_STEPS_BLOCK_NAME_TEXT, TEST_STEPS_BLOCK_NAME_FONT_SIZE, ParagraphAlignment.LEFT, true);
-        aroundTextBorders(paragraph);
+        TextFormatting.aroundTextBorders(paragraph);
         getTestStepsFromAllureModelParent(stepsDTO);
 
         if (!isLastElement) {
-            setPageBreak();
+            TextFormatting.setPageBreak(document);
         }
-    }
-
-
-    private void aroundTextBorders(XWPFParagraph paragraph) {
-        paragraph.setBorderRight(Borders.BASIC_BLACK_DASHES);
-        paragraph.setBorderBottom(Borders.BASIC_BLACK_DASHES);
-        paragraph.setBorderLeft(Borders.BASIC_BLACK_DASHES);
-        paragraph.setBorderTop(Borders.BASIC_BLACK_DASHES);
     }
 
     private void getTestStepsFromAllureModelParent(StepsDTO stepsDTO) {
@@ -144,18 +132,18 @@ public class DocGenerator {
 
             XWPFParagraph paragraph1 = generateTextWithParameters(stepnumber + ". " + stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
 
-            setSpacingBeetwenLines(paragraph1);
+            TextFormatting.setSpacingBetweenLines(paragraph1);
 
             if (!stepsDTO.getSteps().get(i).getParameters().isEmpty()) {
                 for (int j = 0; j < stepsDTO.getSteps().get(i).getParameters().size(); j++) {
                     XWPFParagraph paragraph = generateTextWithParameters(getStringWithSpaces((stepnumber + ". ").length()) + "   name: " + stepsDTO.getSteps().get(i).getParameters().get(j).getName() + "  value: " + stepsDTO.getSteps().get(i).getParameters().get(j).getValue(), TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
 
-                    setSpacingBeetwenLines(paragraph);
-                    aroundTextBorders(paragraph);
+                    TextFormatting.setSpacingBetweenLines(paragraph);
+                    TextFormatting.aroundTextBorders(paragraph);
 
                 }
             }
-            aroundTextBorders(paragraph1);
+            TextFormatting.aroundTextBorders(paragraph1);
             String parentPrefix = "   " + String.valueOf(stepnumber) + ".";
             getTestStepsFromAllureModelChild(parentPrefix, stepsDTO.getSteps().get(i));
             stepnumber++;
@@ -167,18 +155,18 @@ public class DocGenerator {
         for (int i = 0; i < stepsDTO.getSteps().size(); i++) {
             XWPFParagraph paragraph1 = generateTextWithParameters(parentStepNumber + stepnumber + ". " + stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
 
-            setSpacingBeetwenLines(paragraph1);
+            TextFormatting.setSpacingBetweenLines(paragraph1);
 
             paragraph1.setSpacingBetween(1);
             if (!stepsDTO.getSteps().get(i).getParameters().isEmpty()) {
                 for (int j = 0; j < stepsDTO.getSteps().get(i).getParameters().size(); j++) {
                     XWPFParagraph paragraph = generateTextWithParameters(getStringWithSpaces((parentStepNumber + stepnumber + ". ").length()) + "   name: " + stepsDTO.getSteps().get(i).getParameters().get(j).getName() + "  value: " + stepsDTO.getSteps().get(i).getParameters().get(j).getValue(), TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
-                    setSpacingBeetwenLines(paragraph);
-                    aroundTextBorders(paragraph);
+                    TextFormatting.setSpacingBetweenLines(paragraph);
+                    TextFormatting.aroundTextBorders(paragraph);
 
                 }
             }
-            aroundTextBorders(paragraph1);
+            TextFormatting.aroundTextBorders(paragraph1);
             String parentPrefix = "   " + parentStepNumber + String.valueOf(stepnumber) + ".";
             getTestStepsFromAllureModelChild(parentPrefix, stepsDTO.getSteps().get(i));
             stepnumber++;
@@ -190,9 +178,9 @@ public class DocGenerator {
         for (int i = 0; i < stepsDTO.getSteps().size(); i++) {
             XWPFParagraph paragraph = generateTextWithParameters(stepnumber + ". " + stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
 
-            setSpacingBeetwenLines(paragraph);
+            TextFormatting.setSpacingBetweenLines(paragraph);
 
-            aroundTextBorders(paragraph);
+            TextFormatting.aroundTextBorders(paragraph);
             getBeforeConditionFromAllureModelChild(stepsDTO.getSteps().get(i).getParameters());
             stepnumber++;
         }
@@ -202,21 +190,18 @@ public class DocGenerator {
         for (int i = 0; i < parameters.size(); i++) {
             XWPFParagraph paragraph = generateTextWithParameters("   name: " + parameters.get(i).getName() + "  value: " + parameters.get(i).getValue(), TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
 
-            setSpacingBeetwenLines(paragraph);
-            aroundTextBorders(paragraph);
+            TextFormatting.setSpacingBetweenLines(paragraph);
+            TextFormatting.aroundTextBorders(paragraph);
 
         }
     }
 
     private void writeInDocFile() throws IOException {
-        FileOutputStream out = new FileOutputStream(new File("test_scenario.docx"));
+        FileOutputStream out = new FileOutputStream(new File(DOCUMENT_NAME));
         document.write(out);
         out.close();
     }
 
-    private void setSpacesAfter(int spaces) {
-        document.createParagraph().setSpacingAfter(spaces);
-    }
 
     private String getStringWithSpaces(int countSpace) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -227,10 +212,5 @@ public class DocGenerator {
         return stringBuilder.toString();
     }
 
-    private void setPageBreak() {
-        XWPFParagraph paragraph = document.getLastParagraph();
-        XWPFRun run = paragraph.createRun();
-        run.addBreak(BreakType.PAGE);
-        aroundTextBorders(paragraph);
-    }
+
 }
