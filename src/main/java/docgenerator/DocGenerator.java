@@ -4,16 +4,17 @@ import allureDTO.AllureModelDTO;
 import allureDTO.ParametersDTO;
 import allureDTO.StepsDTO;
 import operationwithjson.JsonFilter;
-import org.apache.poi.xwpf.usermodel.*;
+import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-import static operationwithjson.JsonFilter.deleteParametersTestStepsDTOWhereLengthMoreThan50Symbols;
-import static operationwithjson.JsonFilter.getPlainStepsWithoutSetupStep;
-import static operationwithjson.JsonFilter.getStepsDTOWithoutDollarSign;
+import static operationwithjson.JsonFilter.*;
 
 public class DocGenerator {
 
@@ -160,7 +161,7 @@ public class DocGenerator {
             paragraph1.setSpacingBetween(1);
             if (!stepsDTO.getSteps().get(i).getParameters().isEmpty()) {
                 for (int j = 0; j < stepsDTO.getSteps().get(i).getParameters().size(); j++) {
-                    XWPFParagraph paragraph = generateTextWithParameters(getStringWithSpaces((parentStepNumber + stepnumber + ". ").length()) + "   name: " + stepsDTO.getSteps().get(i).getParameters().get(j).getName() + "  value: " + stepsDTO.getSteps().get(i).getParameters().get(j).getValue(), TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
+                    XWPFParagraph paragraph = generateTextWithParameters( "name: " + stepsDTO.getSteps().get(i).getParameters().get(j).getName() + "  value: " + stepsDTO.getSteps().get(i).getParameters().get(j).getValue(), TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
                     TextFormatting.setSpacingBetweenLines(paragraph);
                     TextFormatting.aroundTextBorders(paragraph);
 
@@ -188,7 +189,7 @@ public class DocGenerator {
 
     private void getBeforeConditionFromAllureModelChild(List<ParametersDTO> parameters) {
         for (int i = 0; i < parameters.size(); i++) {
-            XWPFParagraph paragraph = generateTextWithParameters("   name: " + parameters.get(i).getName() + "  value: " + parameters.get(i).getValue(), TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
+            XWPFParagraph paragraph = generateTextWithParameters("name: " + parameters.get(i).getName() + "  value: " + parameters.get(i).getValue(), TEST_STEPS_BLOCK_PARAMETERS_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
 
             TextFormatting.setSpacingBetweenLines(paragraph);
             TextFormatting.aroundTextBorders(paragraph);
