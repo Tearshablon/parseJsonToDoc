@@ -45,7 +45,7 @@ public class DocGenerator {
         XWPFParagraph paragraph = generateTextWithParameters(BEFORE_CONDITION_BLOCK_NAME_TEXT, TEST_STEPS_BLOCK_NAME_FONT_SIZE, ParagraphAlignment.LEFT, true);
         aroundTextBorders(paragraph);
         getBeforeConditionFromAllureModelParent(stepsDTO);
-        setSpasingAfter(500);
+        setSpacesAfter(500);
     }
 
     private XWPFParagraph generateTextWithParameters(String text, int fontSize, ParagraphAlignment paragraphAlignment, boolean bold) {
@@ -134,19 +134,15 @@ public class DocGenerator {
         for (int i = 0; i < stepsDTO.getSteps().size(); i++) {
             XWPFParagraph paragraph = generateTextWithParameters(stepnumber + ". " + stepsDTO.getSteps().get(i).getName(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
             aroundTextBorders(paragraph);
-            String parentPrefix = "   " + String.valueOf(stepnumber) + ".";
-            getBeforeConditionFromAllureModelChild(parentPrefix, stepsDTO.getSteps().get(i).getParameters());
+            getBeforeConditionFromAllureModelChild(stepsDTO.getSteps().get(i).getParameters());
             stepnumber++;
         }
     }
 
-    private void getBeforeConditionFromAllureModelChild(String parentStepNumber, List<ParametersDTO> parameters) {
-        int stepnumber = 1;
+    private void getBeforeConditionFromAllureModelChild(List<ParametersDTO> parameters) {
         for (int i = 0; i < parameters.size(); i++) {
-            XWPFParagraph paragraph = generateTextWithParameters(parentStepNumber + stepnumber + ". name: " + parameters.get(i).getName() + "  value: " + parameters.get(i).getValue(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
+            XWPFParagraph paragraph = generateTextWithParameters("   name: " + parameters.get(i).getName() + "  value: " + parameters.get(i).getValue(), TEST_STEPS_BLOCK_NAME_STEPS_FONT_SIZE, ParagraphAlignment.LEFT, false);
             aroundTextBorders(paragraph);
-            String parentPrefix = "   " + parentStepNumber + String.valueOf(stepnumber) + ".";
-            stepnumber++;
         }
     }
 
@@ -156,7 +152,7 @@ public class DocGenerator {
         out.close();
     }
 
-    private void setSpasingAfter(int spaces) {
+    private void setSpacesAfter(int spaces) {
         document.createParagraph().setSpacingAfter(spaces);
     }
 }

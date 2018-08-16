@@ -19,28 +19,34 @@ public class JsonFilter {
 
     /**
      * Возвращает StepsDTO без шага setup
+     *
      * @param steps
      * @return
      */
-    public static StepsDTO getStepsDTOWithoutSetupStep(StepsDTO steps) {
+    public static StepsDTO getPlainStepsDTOWithoutSetupStep(StepsDTO steps) {
         StepsDTO stepsDTO = new StepsDTO();
         stepsDTO.setSteps(steps.getSteps().stream().skip(1).collect(Collectors.toList()));
         return stepsDTO;
     }
 
-
     /**
      * Возвращает StepsDTO без шага setup
+     *
      * @param parentSteps StepsDto c вложенными StepsDto
      * @return плоский StepsDto
      */
     public static StepsDTO getPlainStepsWithoutSetupStep(StepsDTO parentSteps) {
+        StepsDTO plainStepsDTO = getPlainStepsDTO(parentSteps);
+        StepsDTO plainStepsDTOWithoutSetupStep = getPlainStepsDTOWithoutSetupStep(plainStepsDTO);
+        deleteParametersStepsDTOWhereLengthMoreThan50Symbols(plainStepsDTOWithoutSetupStep);
+        return plainStepsDTOWithoutSetupStep;
+    }
+
+    private static StepsDTO getPlainStepsDTO(StepsDTO parentSteps) {
         for (StepsDTO childSteps : parentSteps.getSteps()) {
             childSteps.setSteps(null);
         }
-        StepsDTO stepsDTO = new StepsDTO();
-        stepsDTO.setSteps(parentSteps.getSteps().stream().skip(1).collect(Collectors.toList()));
-        return stepsDTO;
+        return parentSteps;
     }
 
     public static StepsDTO getStepsDTOWithoutDollarSign(StepsDTO steps) {
@@ -52,5 +58,9 @@ public class JsonFilter {
             }
         }
         return stepsDTO;
+    }
+
+    private static void deleteParametersStepsDTOWhereLengthMoreThan50Symbols(StepsDTO stepsDTO) {
+        stepsDTO.getSteps().stream().map(stepsDTO1 -> stepsDTO1.getParameters().removeIf(parametersDTO -> parametersDTO.getValue().length() > 50)).collect(Collectors.toList());
     }
 }
