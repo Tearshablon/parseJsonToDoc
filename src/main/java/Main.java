@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         List<AllureModelDTO> allureModel = JsonReader.getModelFromJson();
 
+        System.out.println("началось формирование документа");
         DocGenerator docGenerator = new DocGenerator();
         docGenerator.generateDocFiles(allureModel);
     }

@@ -1,0 +1,2189 @@
+{
+  "uid" : "3f214392d1770d94",
+  "name" : "Выбор memberId для пользователя с ролью  Модератор участника с несколькими ID и Пользователя с одним Id",
+  "historyId" : "4c4bd404022efc14cbe1b8ec959da490",
+  "time" : {
+    "start" : 1533933821890,
+    "stop" : 1533933839674,
+    "duration" : 17784
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "before",
+      "time" : {
+        "start" : 1533933821936,
+        "stop" : 1533933837702,
+        "duration" : 15766
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "setup",
+        "time" : {
+          "start" : 1533933821937,
+          "stop" : 1533933828230,
+          "duration" : 6293
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "start",
+          "time" : {
+            "start" : 1533933822934,
+            "stop" : 1533933826979,
+            "duration" : 4045
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "log",
+            "time" : {
+              "start" : 1533933826420,
+              "stop" : 1533933826427,
+              "duration" : 7
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ {
+              "name" : "message",
+              "value" : "http://192.168.199.214/"
+            } ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : true
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "getWebUrl",
+          "time" : {
+            "start" : 1533933826980,
+            "stop" : 1533933826980,
+            "duration" : 0
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "getRestUrl",
+          "time" : {
+            "start" : 1533933826980,
+            "stop" : 1533933826980,
+            "duration" : 0
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "getMoasRestUrl",
+          "time" : {
+            "start" : 1533933826980,
+            "stop" : 1533933826980,
+            "duration" : 0
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "getMoasLaunchHost",
+          "time" : {
+            "start" : 1533933826980,
+            "stop" : 1533933826980,
+            "duration" : 0
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "open",
+          "time" : {
+            "start" : 1533933826985,
+            "stop" : 1533933828230,
+            "duration" : 1245
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(open) http://192.168.199.214/",
+            "time" : {
+              "start" : 1533933826997,
+              "stop" : 1533933828219,
+              "duration" : 1222
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ {
+            "name" : "url",
+            "value" : "http://192.168.199.214/"
+          } ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 8,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      }, {
+        "name" : "memberExist",
+        "time" : {
+          "start" : 1533933828319,
+          "stop" : 1533933828978,
+          "duration" : 659
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "member",
+          "value" : "ru.rtech.domain.autorization.service.Member@eeb9710"
+        } ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      }, {
+        "name" : "userExist",
+        "time" : {
+          "start" : 1533933828979,
+          "stop" : 1533933829139,
+          "duration" : 160
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "userWithRoleOperator",
+          "value" : "[Пользователь Участника МОКС, Пользователь Участника МОАС]"
+        } ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      }, {
+        "name" : "login",
+        "time" : {
+          "start" : 1533933829140,
+          "stop" : 1533933833318,
+          "duration" : 4178
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "login",
+          "time" : {
+            "start" : 1533933829187,
+            "stop" : 1533933833318,
+            "duration" : 4131
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(form.login-form) $(input[name=\"username\"])",
+            "time" : {
+              "start" : 1533933829249,
+              "stop" : 1533933829400,
+              "duration" : 151
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(form.login-form) $(input[name=\"password\"])",
+            "time" : {
+              "start" : 1533933829400,
+              "stop" : 1533933829401,
+              "duration" : 1
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(form.login-form) $(button)",
+            "time" : {
+              "start" : 1533933829417,
+              "stop" : 1533933829418,
+              "duration" : 1
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(form.login-form) $(mat-select[placeholder=\"Module\"])",
+            "time" : {
+              "start" : 1533933829432,
+              "stop" : 1533933829432,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(form.login-form) $(mat-select[placeholder=\"Language\"])",
+            "time" : {
+              "start" : 1533933829432,
+              "stop" : 1533933829432,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(form.login-form) should be(visible)",
+            "time" : {
+              "start" : 1533933829433,
+              "stop" : 1533933829497,
+              "duration" : 64
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "fillLoginField",
+            "time" : {
+              "start" : 1533933829497,
+              "stop" : 1533933830227,
+              "duration" : 730
+            },
+            "status" : "passed",
+            "steps" : [ {
+              "name" : "checkVisible",
+              "time" : {
+                "start" : 1533933829498,
+                "stop" : 1533933829577,
+                "duration" : 79
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(input[name=\"username\"]) should be(visible)",
+                "time" : {
+                  "start" : 1533933829499,
+                  "stop" : 1533933829577,
+                  "duration" : 78
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "checkEnabled",
+              "time" : {
+                "start" : 1533933829577,
+                "stop" : 1533933829659,
+                "duration" : 82
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(input[name=\"username\"]) should be(enabled)",
+                "time" : {
+                  "start" : 1533933829579,
+                  "stop" : 1533933829659,
+                  "duration" : 80
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "fillValue",
+              "time" : {
+                "start" : 1533933829659,
+                "stop" : 1533933830227,
+                "duration" : 568
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(input[name=\"username\"]) set value(mocsMoasfuncTestUser@MoksMoasMemberUser)",
+                "time" : {
+                  "start" : 1533933829660,
+                  "stop" : 1533933830227,
+                  "duration" : 567
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ {
+                "name" : "value",
+                "value" : "mocsMoasfuncTestUser@MoksMoasMemberUser"
+              } ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            } ],
+            "attachments" : [ ],
+            "parameters" : [ {
+              "name" : "password",
+              "value" : "mocsMoasfuncTestUser@MoksMoasMemberUser"
+            } ],
+            "stepsCount" : 6,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : true
+          }, {
+            "name" : "fillPasswordField",
+            "time" : {
+              "start" : 1533933830227,
+              "stop" : 1533933830594,
+              "duration" : 367
+            },
+            "status" : "passed",
+            "steps" : [ {
+              "name" : "checkVisible",
+              "time" : {
+                "start" : 1533933830227,
+                "stop" : 1533933830327,
+                "duration" : 100
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(input[name=\"password\"]) should be(visible)",
+                "time" : {
+                  "start" : 1533933830228,
+                  "stop" : 1533933830326,
+                  "duration" : 98
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "checkEnabled",
+              "time" : {
+                "start" : 1533933830327,
+                "stop" : 1533933830384,
+                "duration" : 57
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(input[name=\"password\"]) should be(enabled)",
+                "time" : {
+                  "start" : 1533933830327,
+                  "stop" : 1533933830384,
+                  "duration" : 57
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "fillValue",
+              "time" : {
+                "start" : 1533933830384,
+                "stop" : 1533933830594,
+                "duration" : 210
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(input[name=\"password\"]) set value(password)",
+                "time" : {
+                  "start" : 1533933830385,
+                  "stop" : 1533933830594,
+                  "duration" : 209
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ {
+                "name" : "value",
+                "value" : "password"
+              } ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            } ],
+            "attachments" : [ ],
+            "parameters" : [ {
+              "name" : "login",
+              "value" : "password"
+            } ],
+            "stepsCount" : 6,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : true
+          }, {
+            "name" : "chooseModule",
+            "time" : {
+              "start" : 1533933830594,
+              "stop" : 1533933832804,
+              "duration" : 2210
+            },
+            "status" : "passed",
+            "steps" : [ {
+              "name" : "checkVisible",
+              "time" : {
+                "start" : 1533933830595,
+                "stop" : 1533933830680,
+                "duration" : 85
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(mat-select[placeholder=\"Module\"]) should be(visible)",
+                "time" : {
+                  "start" : 1533933830596,
+                  "stop" : 1533933830680,
+                  "duration" : 84
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "checkEnabled",
+              "time" : {
+                "start" : 1533933830680,
+                "stop" : 1533933830755,
+                "duration" : 75
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(mat-select[placeholder=\"Module\"]) should be(enabled)",
+                "time" : {
+                  "start" : 1533933830682,
+                  "stop" : 1533933830755,
+                  "duration" : 73
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "click",
+              "time" : {
+                "start" : 1533933830755,
+                "stop" : 1533933831171,
+                "duration" : 416
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(mat-select[placeholder=\"Module\"]) click()",
+                "time" : {
+                  "start" : 1533933830756,
+                  "stop" : 1533933831171,
+                  "duration" : 415
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "chooseOptionByText",
+              "time" : {
+                "start" : 1533933831172,
+                "stop" : 1533933832804,
+                "duration" : 1632
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(div.mat-select-panel-done-animating mat-option) should be(size > 0)",
+                "time" : {
+                  "start" : 1533933831183,
+                  "stop" : 1533933831259,
+                  "duration" : 76
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              }, {
+                "name" : "$(div.mat-select-panel-done-animating mat-option[0]) get text()",
+                "time" : {
+                  "start" : 1533933831262,
+                  "stop" : 1533933831336,
+                  "duration" : 74
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              }, {
+                "name" : "$(div.mat-select-panel-done-animating mat-option[1]) get text()",
+                "time" : {
+                  "start" : 1533933831336,
+                  "stop" : 1533933831403,
+                  "duration" : 67
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              }, {
+                "name" : "$(div.mat-select-panel-done-animating mat-option[1]) should be([visible, enabled])",
+                "time" : {
+                  "start" : 1533933831404,
+                  "stop" : 1533933831752,
+                  "duration" : 348
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              }, {
+                "name" : "$(div.mat-select-panel-done-animating mat-option[1]) click()",
+                "time" : {
+                  "start" : 1533933831754,
+                  "stop" : 1533933831881,
+                  "duration" : 127
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              }, {
+                "name" : "$(div.mat-select-panel-done-animating mat-option[1]) should be(hidden)",
+                "time" : {
+                  "start" : 1533933831882,
+                  "stop" : 1533933832483,
+                  "duration" : 601
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              }, {
+                "name" : "$(div.mat-select-panel-done-animating mat-option) should be(size(0))",
+                "time" : {
+                  "start" : 1533933832484,
+                  "stop" : 1533933832804,
+                  "duration" : 320
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ {
+                "name" : "name",
+                "value" : "Клиринг"
+              } ],
+              "stepsCount" : 7,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            } ],
+            "attachments" : [ ],
+            "parameters" : [ {
+              "name" : "module",
+              "value" : "Клиринг"
+            } ],
+            "stepsCount" : 14,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : true
+          }, {
+            "name" : "chooseLanguage",
+            "time" : {
+              "start" : 1533933832805,
+              "stop" : 1533933833002,
+              "duration" : 197
+            },
+            "status" : "passed",
+            "steps" : [ {
+              "name" : "checkVisible",
+              "time" : {
+                "start" : 1533933832805,
+                "stop" : 1533933832860,
+                "duration" : 55
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(mat-select[placeholder=\"Module\"]) should be(visible)",
+                "time" : {
+                  "start" : 1533933832806,
+                  "stop" : 1533933832860,
+                  "duration" : 54
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "checkEnabled",
+              "time" : {
+                "start" : 1533933832860,
+                "stop" : 1533933832916,
+                "duration" : 56
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(mat-select[placeholder=\"Module\"]) should be(enabled)",
+                "time" : {
+                  "start" : 1533933832861,
+                  "stop" : 1533933832916,
+                  "duration" : 55
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "getText",
+              "time" : {
+                "start" : 1533933832917,
+                "stop" : 1533933833002,
+                "duration" : 85
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(mat-select[placeholder=\"Module\"]) get text()",
+                "time" : {
+                  "start" : 1533933832917,
+                  "stop" : 1533933833002,
+                  "duration" : 85
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            } ],
+            "attachments" : [ ],
+            "parameters" : [ {
+              "name" : "language",
+              "value" : "Русский"
+            } ],
+            "stepsCount" : 6,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : true
+          }, {
+            "name" : "pressLoginButton",
+            "time" : {
+              "start" : 1533933833003,
+              "stop" : 1533933833318,
+              "duration" : 315
+            },
+            "status" : "passed",
+            "steps" : [ {
+              "name" : "checkVisible",
+              "time" : {
+                "start" : 1533933833003,
+                "stop" : 1533933833124,
+                "duration" : 121
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(button) should be(visible)",
+                "time" : {
+                  "start" : 1533933833004,
+                  "stop" : 1533933833124,
+                  "duration" : 120
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "checkEnabled",
+              "time" : {
+                "start" : 1533933833124,
+                "stop" : 1533933833193,
+                "duration" : 69
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(button) should be(enabled)",
+                "time" : {
+                  "start" : 1533933833125,
+                  "stop" : 1533933833193,
+                  "duration" : 68
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            }, {
+              "name" : "click",
+              "time" : {
+                "start" : 1533933833194,
+                "stop" : 1533933833318,
+                "duration" : 124
+              },
+              "status" : "passed",
+              "steps" : [ {
+                "name" : "$(button) click()",
+                "time" : {
+                  "start" : 1533933833194,
+                  "stop" : 1533933833318,
+                  "duration" : 124
+                },
+                "status" : "passed",
+                "steps" : [ ],
+                "attachments" : [ ],
+                "parameters" : [ ],
+                "stepsCount" : 0,
+                "attachmentsCount" : 0,
+                "shouldDisplayMessage" : false,
+                "hasContent" : false
+              } ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 1,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : true
+            } ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 6,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : true
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ {
+            "name" : "user",
+            "value" : "[Пользователь Участника МОКС, Пользователь Участника МОАС]"
+          }, {
+            "name" : "module",
+            "value" : "Клиринг"
+          }, {
+            "name" : "language",
+            "value" : "Русский"
+          } ],
+          "stepsCount" : 49,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "user",
+          "value" : "[Пользователь Участника МОКС, Пользователь Участника МОАС]"
+        }, {
+          "name" : "userModule",
+          "value" : "Клиринг"
+        }, {
+          "name" : "language",
+          "value" : "Русский"
+        } ],
+        "stepsCount" : 50,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      }, {
+        "name" : "goToTestScenarioLaunch",
+        "time" : {
+          "start" : 1533933833319,
+          "stop" : 1533933836914,
+          "duration" : 3595
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "pressLaunchScenarioButton",
+          "time" : {
+            "start" : 1533933833319,
+            "stop" : 1533933836914,
+            "duration" : 3595
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(div.user-settings) $(button)",
+            "time" : {
+              "start" : 1533933833321,
+              "stop" : 1533933833321,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(div.user-settings) $(mat-select.member-id-list-select)",
+            "time" : {
+              "start" : 1533933833321,
+              "stop" : 1533933833321,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(div.user-settings) $(span.member-id-list-label)",
+            "time" : {
+              "start" : 1533933833338,
+              "stop" : 1533933833338,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-sidenav) $(li.libraries-menu-tab)",
+            "time" : {
+              "start" : 1533933833343,
+              "stop" : 1533933833343,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-sidenav) $(li.test-scenario-group-menu-tab)",
+            "time" : {
+              "start" : 1533933833344,
+              "stop" : 1533933833344,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-sidenav) $(button.logo)",
+            "time" : {
+              "start" : 1533933833345,
+              "stop" : 1533933833345,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-dialog-container.mat-dialog-container) $(.title)",
+            "time" : {
+              "start" : 1533933833359,
+              "stop" : 1533933833359,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-dialog-container.mat-dialog-container) $$(li)",
+            "time" : {
+              "start" : 1533933833360,
+              "stop" : 1533933833360,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-dialog-container.mat-dialog-container) $(#ok-button)",
+            "time" : {
+              "start" : 1533933833360,
+              "stop" : 1533933833360,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-dialog-container.mat-dialog-container) $(#cancel-button)",
+            "time" : {
+              "start" : 1533933833360,
+              "stop" : 1533933833360,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(app-confirm-dialog) $(.title)",
+            "time" : {
+              "start" : 1533933833372,
+              "stop" : 1533933833373,
+              "duration" : 1
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(app-confirm-dialog) $(p.title)",
+            "time" : {
+              "start" : 1533933833373,
+              "stop" : 1533933833373,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(app-confirm-dialog) $(button#ok-button)",
+            "time" : {
+              "start" : 1533933833373,
+              "stop" : 1533933833373,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(app-confirm-dialog) $(button#cancel-button)",
+            "time" : {
+              "start" : 1533933833373,
+              "stop" : 1533933833373,
+              "duration" : 0
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "checkVisible",
+            "time" : {
+              "start" : 1533933833373,
+              "stop" : 1533933836722,
+              "duration" : 3349
+            },
+            "status" : "passed",
+            "steps" : [ {
+              "name" : "$(li.test-scenario-group-menu-tab) should be(visible)",
+              "time" : {
+                "start" : 1533933833374,
+                "stop" : 1533933836722,
+                "duration" : 3348
+              },
+              "status" : "passed",
+              "steps" : [ ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 0,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : false
+            } ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 1,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : true
+          }, {
+            "name" : "click",
+            "time" : {
+              "start" : 1533933836722,
+              "stop" : 1533933836914,
+              "duration" : 192
+            },
+            "status" : "passed",
+            "steps" : [ {
+              "name" : "$(li.test-scenario-group-menu-tab) click()",
+              "time" : {
+                "start" : 1533933836723,
+                "stop" : 1533933836914,
+                "duration" : 191
+              },
+              "status" : "passed",
+              "steps" : [ ],
+              "attachments" : [ ],
+              "parameters" : [ ],
+              "stepsCount" : 0,
+              "attachmentsCount" : 0,
+              "shouldDisplayMessage" : false,
+              "hasContent" : false
+            } ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 1,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : true
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 18,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 19,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      }, {
+        "name" : "pressAvailableForLaunchBookmark",
+        "time" : {
+          "start" : 1533933836958,
+          "stop" : 1533933837702,
+          "duration" : 744
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "$(app-test-scenario-group) $(div.navigation-header)",
+          "time" : {
+            "start" : 1533933836959,
+            "stop" : 1533933836960,
+            "duration" : 1
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "$(div.navigation-header) $(a)",
+          "time" : {
+            "start" : 1533933836960,
+            "stop" : 1533933836960,
+            "duration" : 0
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "$(a) should be(visible)",
+          "time" : {
+            "start" : 1533933836961,
+            "stop" : 1533933837497,
+            "duration" : 536
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "$(a) click()",
+          "time" : {
+            "start" : 1533933837497,
+            "stop" : 1533933837702,
+            "duration" : 205
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 4,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 87,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "test",
+      "time" : {
+        "start" : 1533933837729,
+        "stop" : 1533933839528,
+        "duration" : 1799
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "checkCommonMacsElements",
+        "time" : {
+          "start" : 1533933837729,
+          "stop" : 1533933838441,
+          "duration" : 712
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "checkVisible",
+          "time" : {
+            "start" : 1533933837729,
+            "stop" : 1533933837819,
+            "duration" : 90
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(button.logo) should be(visible)",
+            "time" : {
+              "start" : 1533933837731,
+              "stop" : 1533933837819,
+              "duration" : 88
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkVisible",
+          "time" : {
+            "start" : 1533933837819,
+            "stop" : 1533933837900,
+            "duration" : 81
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(li.libraries-menu-tab) should be(visible)",
+            "time" : {
+              "start" : 1533933837819,
+              "stop" : 1533933837900,
+              "duration" : 81
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkExist",
+          "time" : {
+            "start" : 1533933837901,
+            "stop" : 1533933837960,
+            "duration" : 59
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(li.libraries-menu-tab) should be(exist)",
+            "time" : {
+              "start" : 1533933837902,
+              "stop" : 1533933837960,
+              "duration" : 58
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkVisible",
+          "time" : {
+            "start" : 1533933837960,
+            "stop" : 1533933838024,
+            "duration" : 64
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(li.test-scenario-group-menu-tab) should be(visible)",
+            "time" : {
+              "start" : 1533933837961,
+              "stop" : 1533933838024,
+              "duration" : 63
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkExist",
+          "time" : {
+            "start" : 1533933838024,
+            "stop" : 1533933838094,
+            "duration" : 70
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(li.test-scenario-group-menu-tab) should be(exist)",
+            "time" : {
+              "start" : 1533933838025,
+              "stop" : 1533933838094,
+              "duration" : 69
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkVisible",
+          "time" : {
+            "start" : 1533933838094,
+            "stop" : 1533933838187,
+            "duration" : 93
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(button) should be(visible)",
+            "time" : {
+              "start" : 1533933838095,
+              "stop" : 1533933838187,
+              "duration" : 92
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkText",
+          "time" : {
+            "start" : 1533933838187,
+            "stop" : 1533933838275,
+            "duration" : 88
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(button) should be(exact text case sensitive 'ПользовательУчастникаМОАС Ф. Т.')",
+            "time" : {
+              "start" : 1533933838188,
+              "stop" : 1533933838275,
+              "duration" : 87
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ {
+            "name" : "text",
+            "value" : "ПользовательУчастникаМОАС Ф. Т."
+          } ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkVisible",
+          "time" : {
+            "start" : 1533933838276,
+            "stop" : 1533933838356,
+            "duration" : 80
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(span.member-id-list-label) should be(visible)",
+            "time" : {
+              "start" : 1533933838277,
+              "stop" : 1533933838356,
+              "duration" : 79
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkVisible",
+          "time" : {
+            "start" : 1533933838356,
+            "stop" : 1533933838441,
+            "duration" : 85
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(mat-select.member-id-list-select) should be(visible)",
+            "time" : {
+              "start" : 1533933838357,
+              "stop" : 1533933838441,
+              "duration" : 84
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "user",
+          "value" : "[Пользователь Участника МОКС, Пользователь Участника МОАС]"
+        } ],
+        "stepsCount" : 18,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      }, {
+        "name" : "findAllMemberId",
+        "time" : {
+          "start" : 1533933838442,
+          "stop" : 1533933839232,
+          "duration" : 790
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "checkVisible",
+          "time" : {
+            "start" : 1533933838442,
+            "stop" : 1533933838505,
+            "duration" : 63
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(mat-select.member-id-list-select) should be(visible)",
+            "time" : {
+              "start" : 1533933838443,
+              "stop" : 1533933838505,
+              "duration" : 62
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkEnabled",
+          "time" : {
+            "start" : 1533933838505,
+            "stop" : 1533933838567,
+            "duration" : 62
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(mat-select.member-id-list-select) should be(enabled)",
+            "time" : {
+              "start" : 1533933838506,
+              "stop" : 1533933838567,
+              "duration" : 61
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "click",
+          "time" : {
+            "start" : 1533933838567,
+            "stop" : 1533933838738,
+            "duration" : 171
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(mat-select.member-id-list-select) click()",
+            "time" : {
+              "start" : 1533933838568,
+              "stop" : 1533933838738,
+              "duration" : 170
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkSize",
+          "time" : {
+            "start" : 1533933838740,
+            "stop" : 1533933838780,
+            "duration" : 40
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(mat-option) should have(size(4))",
+            "time" : {
+              "start" : 1533933838741,
+              "stop" : 1533933838780,
+              "duration" : 39
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ {
+            "name" : "size",
+            "value" : "4"
+          } ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkValues",
+          "time" : {
+            "start" : 1533933838780,
+            "stop" : 1533933839232,
+            "duration" : 452
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(mat-option.findBy(exact text '11380100000')) should(exist)",
+            "time" : {
+              "start" : 1533933838782,
+              "stop" : 1533933838865,
+              "duration" : 83
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-option.findBy(exact text '10000000000')) should(exist)",
+            "time" : {
+              "start" : 1533933838866,
+              "stop" : 1533933838995,
+              "duration" : 129
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-option.findBy(exact text '10000000001')) should(exist)",
+            "time" : {
+              "start" : 1533933838996,
+              "stop" : 1533933839135,
+              "duration" : 139
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          }, {
+            "name" : "$(mat-option.findBy(exact text '41380800000')) should(exist)",
+            "time" : {
+              "start" : 1533933839137,
+              "stop" : 1533933839232,
+              "duration" : 95
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ {
+            "name" : "values",
+            "value" : "[11380100000, 10000000000, 10000000001, 41380800000]"
+          } ],
+          "stepsCount" : 4,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "memberIdList",
+          "value" : "[11380100000, 10000000000, 10000000001, 41380800000]"
+        } ],
+        "stepsCount" : 13,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      }, {
+        "name" : "chooseAnotherId",
+        "time" : {
+          "start" : 1533933839232,
+          "stop" : 1533933839377,
+          "duration" : 145
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "$(div.mat-select-panel-done-animating mat-option[ng-reflect-value=\"10000000001\"]) click()",
+          "time" : {
+            "start" : 1533933839233,
+            "stop" : 1533933839377,
+            "duration" : 144
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "memberId",
+          "value" : "10000000001"
+        } ],
+        "stepsCount" : 1,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      }, {
+        "name" : "checkChoseMemberId",
+        "time" : {
+          "start" : 1533933839377,
+          "stop" : 1533933839528,
+          "duration" : 151
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "checkVisible",
+          "time" : {
+            "start" : 1533933839378,
+            "stop" : 1533933839440,
+            "duration" : 62
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(mat-select.member-id-list-select) should be(visible)",
+            "time" : {
+              "start" : 1533933839379,
+              "stop" : 1533933839440,
+              "duration" : 61
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        }, {
+          "name" : "checkText",
+          "time" : {
+            "start" : 1533933839440,
+            "stop" : 1533933839528,
+            "duration" : 88
+          },
+          "status" : "passed",
+          "steps" : [ {
+            "name" : "$(mat-select.member-id-list-select) should be(exact text case sensitive '10000000001')",
+            "time" : {
+              "start" : 1533933839441,
+              "stop" : 1533933839527,
+              "duration" : 86
+            },
+            "status" : "passed",
+            "steps" : [ ],
+            "attachments" : [ ],
+            "parameters" : [ ],
+            "stepsCount" : 0,
+            "attachmentsCount" : 0,
+            "shouldDisplayMessage" : false,
+            "hasContent" : false
+          } ],
+          "attachments" : [ ],
+          "parameters" : [ {
+            "name" : "text",
+            "value" : "10000000001"
+          } ],
+          "stepsCount" : 1,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "memberId",
+          "value" : "10000000001"
+        } ],
+        "stepsCount" : 4,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 40,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "after",
+      "time" : {
+        "start" : 1533933839531,
+        "stop" : 1533933839664,
+        "duration" : 133
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "logout",
+        "time" : {
+          "start" : 1533933839535,
+          "stop" : 1533933839535,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "teardown",
+        "time" : {
+          "start" : 1533933839535,
+          "stop" : 1533933839664,
+          "duration" : 129
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "stop",
+          "time" : {
+            "start" : 1533933839535,
+            "stop" : 1533933839664,
+            "duration" : 129
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 1,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 3,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 133,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "ru.rtech.tests.launch.memberID.LaunchMemberIdHappyModeratorWithManyId"
+  }, {
+    "name" : "package",
+    "value" : "ru.rtech.tests.launch.memberID.LaunchMemberIdHappyModeratorWithManyId"
+  }, {
+    "name" : "epic",
+    "value" : "Локальное формирование клирингового файла"
+  }, {
+    "name" : "story",
+    "value" : "UC-10029 Список 'memberId получателя' на вкладке 'Формирование файла' в прогоне"
+  }, {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "MACS-626",
+    "url" : "https://jira.phoenixit.ru/browse/MACS-626",
+    "type" : "jira-task"
+  }, {
+    "name" : "pageId=36734000",
+    "url" : "https://kb-liga.phoenixit.ru/pages/viewpage.action?pageId=36734000",
+    "type" : "tms"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "blocker",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 1,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 13,
+        "unknown" : 0,
+        "total" : 14
+      },
+      "items" : [ {
+        "uid" : "61fd54f79a71cbf6",
+        "reportUrl" : "http://192.168.199.215:8111/repository/download/macs_FunctionalTests/9472:id/index.html#testresult/61fd54f79a71cbf6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1533905610209,
+          "stop" : 1533905629690,
+          "duration" : 19481
+        }
+      }, {
+        "uid" : "773fb9d8f416ba08",
+        "reportUrl" : "http://192.168.199.215:8111/repository/download/macs_FunctionalTests/9458:id/index.html#testresult/773fb9d8f416ba08",
+        "status" : "passed",
+        "time" : {
+          "start" : 1533867247308,
+          "stop" : 1533867264764,
+          "duration" : 17456
+        }
+      }, {
+        "uid" : "d21305868913efe9",
+        "reportUrl" : "http://192.168.199.215:8111/repository/download/macs_FunctionalTests/9333:id/index.html#testresult/d21305868913efe9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1533831103642,
+          "stop" : 1533831121084,
+          "duration" : 17442
+        }
+      }, {
+        "uid" : "22466f9fc0270fbb",
+        "reportUrl" : "http://192.168.199.215:8111/repository/download/macs_FunctionalTests/9253:id/index.html#testresult/22466f9fc0270fbb",
+        "status" : "passed",
+        "time" : {
+          "start" : 1533756602062,
+          "stop" : 1533756619322,
+          "duration" : 17260
+        }
+      }, {
+        "uid" : "c3de5e91443d029a",
+        "reportUrl" : "http://192.168.199.215:8111/repository/download/macs_FunctionalTests/9237:id/index.html#testresult/c3de5e91443d029a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1533748521166,
+          "stop" : 1533748537787,
+          "duration" : 16621
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "3f214392d1770d94.json",
+  "parameterValues" : [ ]
+}
