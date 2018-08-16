@@ -42,7 +42,12 @@ public class DocGenerator {
             generateTextWithParameters(allureModel.get(i).getName(), TEST_SCENARIO_NAME_FONT_SIZE, ParagraphAlignment.LEFT, true);
             generateTestScenarioDescriptionBlock(allureModel.get(i));
             generateBeforeConditionBlock(getPlainStepsWithoutSetupStep(getStepsDTOWithoutDollarSign(allureModel.get(i).getTestStage().getSteps().get(0))));
-            generateTestStepsScenarioBlock(deleteParametersTestStepsDTOWhereLengthMoreThan50Symbols(getStepsDTOWithoutDollarSign(allureModel.get(i).getTestStage().getSteps().get(1))));
+
+            if (i == allureModel.size() - 1) {
+                generateTestStepsScenarioBlock(deleteParametersTestStepsDTOWhereLengthMoreThan50Symbols(getStepsDTOWithoutDollarSign(allureModel.get(i).getTestStage().getSteps().get(1))), true);
+            } else {
+                generateTestStepsScenarioBlock(deleteParametersTestStepsDTOWhereLengthMoreThan50Symbols(getStepsDTOWithoutDollarSign(allureModel.get(i).getTestStage().getSteps().get(1))), false);
+            }
             writeInDocFile();
         }
     }
@@ -85,7 +90,7 @@ public class DocGenerator {
     private void setSpacingBeetwenLines(XWPFParagraph paragraph) {
         CTPPr ppr = paragraph.getCTP().getPPr();
         if (ppr == null) ppr = paragraph.getCTP().addNewPPr();
-        CTSpacing spacing = ppr.isSetSpacing()? ppr.getSpacing() : ppr.addNewSpacing();
+        CTSpacing spacing = ppr.isSetSpacing() ? ppr.getSpacing() : ppr.addNewSpacing();
         spacing.setAfter(BigInteger.valueOf(10));
         spacing.setBefore(BigInteger.valueOf(0));
         spacing.setLineRule(STLineSpacingRule.AUTO);
@@ -115,20 +120,16 @@ public class DocGenerator {
                 true);
     }
 
-    private void generateTestStepsScenarioBlock(StepsDTO stepsDTO) {
+    private void generateTestStepsScenarioBlock(StepsDTO stepsDTO, boolean isLastElement) {
         XWPFParagraph paragraph = generateTextWithParameters(TEST_STEPS_BLOCK_NAME_TEXT, TEST_STEPS_BLOCK_NAME_FONT_SIZE, ParagraphAlignment.LEFT, true);
         aroundTextBorders(paragraph);
         getTestStepsFromAllureModelParent(stepsDTO);
 
-        setPageBreak();
+        if (!isLastElement) {
+            setPageBreak();
+        }
     }
 
-    private void setPageBreak() {
-        XWPFParagraph paragraph = document.getLastParagraph();
-        XWPFRun run = paragraph.createRun();
-        run.addBreak(BreakType.PAGE);
-        aroundTextBorders(paragraph);
-    }
 
     private void aroundTextBorders(XWPFParagraph paragraph) {
         paragraph.setBorderRight(Borders.BASIC_BLACK_DASHES);
@@ -224,5 +225,12 @@ public class DocGenerator {
         }
 
         return stringBuilder.toString();
+    }
+
+    private void setPageBreak() {
+        XWPFParagraph paragraph = document.getLastParagraph();
+        XWPFRun run = paragraph.createRun();
+        run.addBreak(BreakType.PAGE);
+        aroundTextBorders(paragraph);
     }
 }
