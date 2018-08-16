@@ -51,7 +51,7 @@ public class DocGenerator {
         XWPFParagraph paragraph = generateTextWithParameters(BEFORE_CONDITION_BLOCK_NAME_TEXT, TEST_STEPS_BLOCK_NAME_FONT_SIZE, ParagraphAlignment.LEFT, true);
         aroundTextBorders(paragraph);
         getBeforeConditionFromAllureModelParent(stepsDTO);
-        setSpacesAfter(500);
+        setSpacesAfter(20);
     }
 
     private XWPFParagraph generateTextWithParameters(String text, int fontSize, ParagraphAlignment paragraphAlignment, boolean bold) {
@@ -113,8 +113,6 @@ public class DocGenerator {
                 TEST_STEPS_BLOCK_NAME_FONT_SIZE,
                 ParagraphAlignment.LEFT,
                 true);
-
-        document.createParagraph().setSpacingAfter(500);
     }
 
     private void generateTestStepsScenarioBlock(StepsDTO stepsDTO) {
