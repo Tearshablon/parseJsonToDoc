@@ -36,9 +36,9 @@ public class DocGenerator {
     public void generateDocFiles(List<AllureModelDTO> allureModel) throws IOException {
         for (int i = 0; i < allureModel.size(); i++) {
             generateTextWithParameters(allureModel.get(i).getName(), TEST_SCENARIO_NAME_FONT_SIZE, ParagraphAlignment.LEFT, true);
-            generateTestScenarioDescriptionBlock(allureModel.get(0));
-            generateBeforeConditionBlock(getPlainStepsWithoutSetupStep(getStepsDTOWithoutDollarSign(allureModel.get(0).getTestStage().getSteps().get(0))));
-            generateTestStepsScenarioBlock(deleteParametersTestStepsDTOWhereLengthMoreThan50Symbols(getStepsDTOWithoutDollarSign(allureModel.get(0).getTestStage().getSteps().get(1))));
+            generateTestScenarioDescriptionBlock(allureModel.get(i));
+            generateBeforeConditionBlock(getPlainStepsWithoutSetupStep(getStepsDTOWithoutDollarSign(allureModel.get(i).getTestStage().getSteps().get(0))));
+            generateTestStepsScenarioBlock(deleteParametersTestStepsDTOWhereLengthMoreThan50Symbols(getStepsDTOWithoutDollarSign(allureModel.get(i).getTestStage().getSteps().get(1))));
             createDocFile(i);
         }
     }
@@ -167,7 +167,7 @@ public class DocGenerator {
     }
 
     private void createDocFile(int i) throws IOException {
-        FileOutputStream out = new FileOutputStream(new File("test_scenario_" + i + ".docx"));
+        FileOutputStream out = new FileOutputStream(new File("test_scenario.docx"));
         document.write(out);
         out.close();
     }
